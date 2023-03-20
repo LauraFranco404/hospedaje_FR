@@ -4,8 +4,9 @@
 
 #include "Propietario.h"
 
-Propietario::Propietario(int id, string nombre, string sexo, string fechaNac, bool rHuesped, int puntaje) {
+Propietario::Propietario(int id, int cedula, string nombre, string sexo, string fechaNac, bool rHuesped, int puntaje) {
     this->id = id;
+    this->cedula = cedula;
     this->nombre = nombre;
     this->sexo = sexo;
     this->fechaNac = fechaNac;

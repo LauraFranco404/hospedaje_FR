@@ -32,8 +32,8 @@ private:
 
 public:
     Sistema() = default;
-    explicit Sistema(string nombre);
-    void recibirPropietario(int id, string nombre, string sexo, string fechaNac, bool rHuesped, int puntaje);
+    ~Sistema();
+    void recibirPropietario(int id, int cedula, string nombre, string sexo, string fechaNac, bool rHuesped, int puntaje);
     void mostrarPropietarios();
 };
 

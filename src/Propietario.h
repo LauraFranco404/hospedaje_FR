@@ -16,6 +16,7 @@ using std::endl;
 class Propietario {
 private:
     int id;
+    int cedula;
     string nombre;
     string sexo;
     string fechaNac;
@@ -26,7 +27,7 @@ private:
 
 
 public:
-    Propietario(int id, string nombre, string sexo, string fechaNac, bool rHuesped, int puntaje);
+    Propietario(int id, int cedula, string nombre, string sexo, string fechaNac, bool rHuesped, int puntaje);
     void agregarHogar(string direccion, int numCamas, bool bebes, string descripcion);
     void setHogar(Hogar *  pHogar);
     string getNombre();

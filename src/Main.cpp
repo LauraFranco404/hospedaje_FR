@@ -13,37 +13,39 @@ using std::cout;
 using std::cin;
 using std::getline;
 
-void primeraOpcion(Sistema *sistema);
+void primeraOpcion(Sistema *sistema, int idTemp);
 void mostrarMenu(Sistema* sistema);
 int main();
 
 
-void primeraOpcion(Sistema *sistema){
-    int idTemp;
+void primeraOpcion(Sistema *sistema, int idTemp){
+    int cedulaTemp;
     string nombreTemp;
     string sexoTemp;
     string fechaNacTemp;
     bool rHuespedTemp = true;
     int puntaje = 0;
 
-    cout << "Bienvenido, propietario." << endl;
+    cout << "Bienvenido, propietario.";
     cout << "A continuacion recibiremos su informacion para agregarlo a la base de datos" << endl;
     cout << "\nIngrese su identificacion:";
-    cin >> idTemp;
+    cin >> cedulaTemp;
     cout << "Ingrese su nombre completo:";
-    cin >> nombreTemp;
+    cin.ignore();
+    getline(cin, nombreTemp, '\n');
     cout << "Ingrese su genero:";
-    cin >> sexoTemp;
+    cin.ignore();
+    getline(cin, sexoTemp, '\n');
     cout << "Ingrese su fecha de nacimiento (dd/mm/aaaa):";
-    cin >> fechaNacTemp;
-    //cout << "Disponibilidad de espacio para huespedes (1 si esta disponible, 0 si no esta disponible):";
-    //cin >> rHuespedTemp;
-    sistema->recibirPropietario(idTemp, nombreTemp, sexoTemp, fechaNacTemp, rHuespedTemp, puntaje);
+    cin.ignore();
+    getline(cin, fechaNacTemp, '\n');
+    sistema->recibirPropietario(idTemp, cedulaTemp, nombreTemp, sexoTemp, fechaNacTemp, rHuespedTemp, puntaje);
 }
 
 
 void mostrarMenu(Sistema* sistema){
     int opcion;
+    int idTemp = 1;
     do{
         cout << "\n****Bienvenido a la red de soporte de la ciudad de Manizales****\n";
         cout << "1. Agregue informacion de su hogar." << endl;
@@ -55,10 +57,13 @@ void mostrarMenu(Sistema* sistema){
         cout << "0. Salir" << endl;
         cin >> opcion;
         switch(opcion){
-            //case 1: primeraOpcion(sistema);
-            break;
+            case 1: primeraOpcion(sistema, idTemp);
+                idTemp++;
+                break;
+
+
             //case 2: sistema->mostrarPropietarios();
-            break;
+            //break;
         }
 
     }while(opcion != 0);
