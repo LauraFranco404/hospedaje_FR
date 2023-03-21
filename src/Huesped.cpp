@@ -41,3 +41,6 @@ string Huesped::getCiudadOrigen(){
 int Huesped::getPuntaje(){
     return this->puntaje;
 }
+void Huesped::setPuntaje(int nPuntaje){
+    this->puntaje = (puntaje+nPuntaje)/2;
+}

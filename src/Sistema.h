@@ -29,7 +29,7 @@ private:
     unordered_map<int, Propietario*> mapaPropietarios;
     unordered_map<int, Huesped*> mapaHuespedes;
     unordered_map<int, Reserva*> mapaReservas;
-    //unordered_map<int, Evaluacion*>mapaEvaluaciones;
+    unordered_map<int, Evaluacion*>mapaEvaluaciones;
 
 public:
     Sistema() = default;
@@ -37,10 +37,12 @@ public:
     void recibirPropietario(int id, Propietario* pPropietarioTemp);
     void recibirHuesped(int id, Huesped* pHuespedTemp);
     void recibirReserva(int id, Reserva* pReservaTemp);
+    void recibirEvaluacion(int id, Evaluacion* pEvaluacionTemp);
 
     void mostrarPropietarios();
     void mostrarHuespedes();
     void mostrarReservas();
+    void mostrarEvaluaciones();
 
     Propietario* accederAPropietario(int cedula);
     Huesped* accederAHuesped(int cedula);

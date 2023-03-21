@@ -38,6 +38,7 @@ public:
     string getSexo();
     string getFechaNac();
     int getPuntaje();
+    void setPuntaje(int nPuntaje);
 
 };
 #endif //HOSPEDAJE_FR_PROPIETARIO_H

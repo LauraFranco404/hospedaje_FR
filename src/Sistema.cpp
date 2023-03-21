@@ -4,7 +4,6 @@
 
 #include "Sistema.h"
 
-//Sistema::Sistema(string nombre) : nombre(nombre){}
 
 void Sistema::recibirPropietario(int id, Propietario* pPropietarioTemp){
     this->mapaPropietarios.insert(make_pair(id, pPropietarioTemp));
@@ -15,6 +14,10 @@ void Sistema::recibirHuesped(int id, Huesped* pHuespedTemp) {
 
 void Sistema::recibirReserva(int id, Reserva* pReservaTemp){
     this->mapaReservas.insert(make_pair(id, pReservaTemp));
+}
+
+void Sistema::recibirEvaluacion(int id, Evaluacion* pEvaluacionTemp){
+    this->mapaEvaluaciones.insert(make_pair(id, pEvaluacionTemp));
 }
 
 void Sistema::mostrarPropietarios() {
@@ -80,6 +83,18 @@ void Sistema::mostrarReservas(){
         cout << "Fecha de fin: " << pReservaTemp->getFechaFin() << endl;
         cout << "Nombre del propietario: " << pReservaTemp->getNombrePropietario() << endl;
         cout << "Nombre del huesped: " << pReservaTemp->getNombreHuesped() << endl;
+    }
+}
+void Sistema::mostrarEvaluaciones(){
+    unordered_map<int, Evaluacion*>::iterator itMap;
+    for (itMap = this->mapaEvaluaciones.begin(); itMap != this->mapaEvaluaciones.end(); ++itMap){
+        Evaluacion* pEvaluacionTemp = itMap->second;
+        cout << "\n***Evaluacion***" << endl;
+        cout << "Evalua a: " << pEvaluacionTemp->getComPara() << endl;
+        cout << "Evaluador: " << pEvaluacionTemp->getComDe() << endl;
+        cout << "Fecha: " << pEvaluacionTemp->getFecha() << endl;
+        cout << "Comentario: " << pEvaluacionTemp->getComentario() << endl;
+        cout << "Calificacion: " << pEvaluacionTemp->getCalificacion() << endl;
     }
 }
 

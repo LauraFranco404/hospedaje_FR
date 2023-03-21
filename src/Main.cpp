@@ -145,7 +145,7 @@ void octavaOpcion(Sistema *sistema){
     sistema->liberarReserva(lReserva);
     pPropietarioTemp->setRHuesped(1);
 }
-/*
+
 void novenaOpcion(Sistema *sistema, int idEvTemp){
     int hop;
     int cedulaTempDe;
@@ -154,6 +154,8 @@ void novenaOpcion(Sistema *sistema, int idEvTemp){
     string comentario;
     int calificacion;
 
+    cout << "Si realizara una evaluacion a un huesped digite 1. Si realizara una evaluacion a un propietario digite 2" << endl;
+    cin >> hop;
     cout << "Por favor ingrese su documento: ";
     cin >> cedulaTempDe;
     cout << "Ingrese la cedula de la persona a la que realizara la evaluacion: ";
@@ -166,16 +168,30 @@ void novenaOpcion(Sistema *sistema, int idEvTemp){
     getline(cin, comentario, '\n');
     cout << "Ingrese la calificacion";
     cin >> calificacion;
-    Huesped *pHuespedTemp = sistema->accederAHuesped(cedulaTempDe);
-    Propietario *pPropietarioTemp = sistema->accederAPropietario(cedulaTempDe);
-    Evaluacion *pEvaluacion = new Evaluacion(fecha, calificacion, comentario, pHuespedTemp, pPropietarioTemp);
+
+    if(hop == 1){
+        Huesped *pHuespedTemp = sistema->accederAHuesped(cedulaTempPara);
+        Propietario *pPropietarioTemp = sistema->accederAPropietario(cedulaTempDe);
+        Evaluacion *pEvaluacion = new Evaluacion(fecha, calificacion, comentario, pHuespedTemp->getNombre(), pPropietarioTemp->getNombre(), pPropietarioTemp->getCedula());
+        sistema->recibirEvaluacion(idEvTemp, pEvaluacion);
+        pHuespedTemp->setPuntaje(calificacion);
+
+    }
+    else{
+        Huesped *pHuespedTemp = sistema->accederAHuesped(cedulaTempDe);
+        Propietario *pPropietarioTemp = sistema->accederAPropietario(cedulaTempPara);
+        Evaluacion *pEvaluacion = new Evaluacion(fecha, calificacion, comentario, pPropietarioTemp->getNombre(), pHuespedTemp->getNombre(), pPropietarioTemp->getCedula());
+        sistema->recibirEvaluacion(idEvTemp, pEvaluacion);
+        pPropietarioTemp->setPuntaje(calificacion);
+    }
 }
- */
+
 void mostrarMenu(Sistema* sistema){
     int opcion;
     int idTemp = 1;
     int idTempH = 1;
     int idReservaTemp = 1;
+    int idEvTemp = 1;
     do{
         cout << "\n****Bienvenido a la red de soporte de la ciudad de Manizales****\n";
         cout << "1. Agregar un propietario." << endl;
@@ -217,6 +233,14 @@ void mostrarMenu(Sistema* sistema){
                 break;
             case 8:
                 octavaOpcion(sistema);
+                break;
+            case 9:
+                novenaOpcion(sistema, idEvTemp);
+                idEvTemp++;
+                break;
+            case 10:
+                sistema->mostrarEvaluaciones();
+                break;
         }
 
     }while(opcion != 0);

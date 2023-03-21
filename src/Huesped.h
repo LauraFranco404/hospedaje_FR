@@ -32,6 +32,7 @@ public:
     string getNombreClinica();
     string getCiudadOrigen();
     int getPuntaje();
+    void setPuntaje(int nPuntaje);
 
 
 };

@@ -55,3 +55,7 @@ string Propietario::getFechaNac(){
 void Propietario::setRHuesped(bool rHuesped) {
     this->rHuesped = rHuesped;
 }
+
+void Propietario::setPuntaje(int nPuntaje) {
+    this->puntaje = (nPuntaje+puntaje)/2;
+}

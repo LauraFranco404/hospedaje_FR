@@ -10,7 +10,6 @@
 #include "Hogar.h"
 #include "Propietario.h"
 #include "Huesped.h"
-#include "Evaluacion.h"
 #include "Reserva.h"
 
 using std::cout;
