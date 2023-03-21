@@ -4,8 +4,7 @@
 
 #include "Propietario.h"
 
-Propietario::Propietario(int id, int cedula, string nombre, string sexo, string fechaNac, bool rHuesped, int puntaje) {
-    this->id = id;
+Propietario::Propietario(int cedula, string nombre, string sexo, string fechaNac, bool rHuesped, int puntaje) {
     this->cedula = cedula;
     this->nombre = nombre;
     this->sexo = sexo;
@@ -24,4 +23,35 @@ void Propietario::setHogar(Hogar *pHogar){
 
 string Propietario::getNombre() {
     return this->nombre;
+}
+
+int Propietario::getCedula() {
+    return this->cedula;
+}
+
+string Propietario::getRHuesped() {
+    if(this->rHuesped == 0){
+        return "Hogar no disponible";
+    }
+    else{
+        return "Hogar disponible";
+    }
+}
+
+int Propietario::getPuntaje() {
+    return this->puntaje;
+}
+
+Hogar *Propietario::getHogar() {
+    return this->pHogar;
+}
+string Propietario::getSexo() {
+    return this->sexo;
+};
+string Propietario::getFechaNac(){
+    return this->fechaNac;
+};
+
+void Propietario::setRHuesped(bool rHuesped) {
+    this->rHuesped = rHuesped;
 }

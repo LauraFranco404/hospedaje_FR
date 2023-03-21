@@ -10,3 +10,23 @@ Hogar::Hogar(string direccion, int numCamas, bool bebes, string descripcion) {
     this->bebes = bebes;
     this->descripcion = descripcion;
 }
+
+string Hogar::getDireccion() {
+    return this->direccion;
+}
+
+int Hogar::getnumCamas() {
+    return this->numCamas;
+}
+string Hogar::getBebes(){
+    if(bebes == 0){
+        return "No se permiten bebes";
+    }
+    else{
+        return "Se permiten bebes";
+    }
+}
+
+string Hogar::getDescripcion(){
+    return this->descripcion;
+}

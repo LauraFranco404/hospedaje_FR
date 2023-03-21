@@ -27,9 +27,17 @@ private:
 
 
 public:
-    Propietario(int id, int cedula, string nombre, string sexo, string fechaNac, bool rHuesped, int puntaje);
+    Propietario(int cedula, string nombre, string sexo, string fechaNac, bool rHuesped, int puntaje);
     void agregarHogar(string direccion, int numCamas, bool bebes, string descripcion);
     void setHogar(Hogar *  pHogar);
     string getNombre();
+    int getCedula();
+    void setRHuesped(bool rHuesped);
+    Hogar* getHogar();
+    string getRHuesped();
+    string getSexo();
+    string getFechaNac();
+    int getPuntaje();
+
 };
 #endif //HOSPEDAJE_FR_PROPIETARIO_H

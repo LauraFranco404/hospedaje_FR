@@ -27,14 +27,27 @@ class Sistema {
 private:
     string nombre;
     unordered_map<int, Propietario*> mapaPropietarios;
+    unordered_map<int, Huesped*> mapaHuespedes;
     unordered_map<int, Reserva*> mapaReservas;
-    unordered_map<int, Evaluacion*>mapaEvaluaciones;
+    //unordered_map<int, Evaluacion*>mapaEvaluaciones;
 
 public:
     Sistema() = default;
     ~Sistema();
-    void recibirPropietario(int id, int cedula, string nombre, string sexo, string fechaNac, bool rHuesped, int puntaje);
+    void recibirPropietario(int id, Propietario* pPropietarioTemp);
+    void recibirHuesped(int id, Huesped* pHuespedTemp);
+    void recibirReserva(int id, Reserva* pReservaTemp);
+
     void mostrarPropietarios();
+    void mostrarHuespedes();
+    void mostrarReservas();
+
+    Propietario* accederAPropietario(int cedula);
+    Huesped* accederAHuesped(int cedula);
+    Reserva* accederAReserva(int idReserva);
+    void mostrarPropietariosDisponibles();
+    void liberarReserva(int cedula);
+
 };
 
 

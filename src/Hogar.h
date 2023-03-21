@@ -21,6 +21,10 @@ private:
 
 public:
     Hogar(string direccion, int numCamas, bool bebes, string descripcion);
+    string getDireccion();
+    int getnumCamas();
+    string getBebes();
+    string getDescripcion();
 };
 
 #endif //HOSPEDAJE_FR_HOGAR_H

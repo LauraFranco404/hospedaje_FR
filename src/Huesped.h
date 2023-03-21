@@ -14,14 +14,26 @@ using std::endl;
 
 
 class Huesped {
-    int id;
+private:
+    int cedula;
     string nombre;
     string sexo;
-    string fecha;
+    string fechaNac;
     Evaluacion* pEvaluacion;
-    string nombreClin;
+    string nombreClinica;
     string ciudadOrigen;
     int puntaje;
+public:
+    Huesped(int cedula, string nombre, string sexo, string fechaNac, string nombreClinica, string ciudadOrigen, int puntaje);
+    int getCedula();
+    string getNombre();
+    string getSexo();
+    string getFechaNac();
+    string getNombreClinica();
+    string getCiudadOrigen();
+    int getPuntaje();
+
+
 };
 
 

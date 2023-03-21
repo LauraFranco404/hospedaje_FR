@@ -7,8 +7,12 @@
 
 #include <string>
 #include <iostream>
-#include "Evaluacion.h"
 #include "Hogar.h"
+#include "Propietario.h"
+#include "Huesped.h"
+#include "Reserva.h"
+#include "Sistema.h"
+
 using std::string;
 using std::cout;
 using std::endl;
@@ -19,11 +23,10 @@ private:
     int calificacion;
     string comentario;
     string comPara;
+    int cedPara;
     string comDe;
-public:
-    Evaluacion();
-    Evaluacion(string fecha, int calificacion, string comentario, string compara, string comDe);
+
 };
 
-
 #endif //HOSPEDAJE_FR_EVALUACION_H
+
